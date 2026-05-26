@@ -1,0 +1,18 @@
+{
+  "name": "skill-training-dashboard-pro",
+  "version": "1.2.0",
+  "date": "2026-05-26",
+  "changes": [
+    "special UI for cells containing (A)",
+    "SVG donut rendering for reliable PNG/PDF export",
+    "kept auto-scroll offset at -1"
+  ],
+  "protected_behaviors": [
+    "empty CSV cells remain empty",
+    "Position column excluded",
+    "Employee ID and Employee Name combined",
+    "CSV parser supports quoted commas",
+    "click employee scrolls to first available skill",
+    "dark/light theme uses Google color tokens"
+  ]
+}
