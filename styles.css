@@ -458,11 +458,12 @@ tr:nth-child(even) td { background: var(--row-even); }
 tr:nth-child(odd) td { background: var(--row-odd); }
 
 td {
-  min-width: 56px; 
-  height: 56px;   
+  min-width: 56px;
+  height: 56px;
   text-align: center;
   vertical-align: middle;
-  padding: 4px;   
+  padding: 4px;
+}
 
 td.employee-cell {
   position: sticky;
