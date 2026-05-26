@@ -156,12 +156,6 @@ const TRANSLATIONS = {
 let currentLang = 'en';
 let hasFileSelected = false;
 
-// ดึง Element ของวิดีโอออกมา
-const waitingVideo = document.getElementById('waitingVideo');
-
-if (waitingVideo) {
-  waitingVideo.playbackRate = 0.5; 
-}
 
 function t(key) {
   return (TRANSLATIONS[currentLang] || TRANSLATIONS.en)[key]
