@@ -899,18 +899,19 @@ td.ctq-col:not(.empty-cell):not(.approved-skill) {
 }
 
 /* ========================================
-   WAITING ANIMATION (VIDEO)
+   WAITING ANIMATION (LOTTIE)
    ======================================== */
 .waiting-animation {
-  margin-top: 24px; /* เว้นระยะห่างจากข้อความด้านบนไม่ให้ติดกันเกินไป */
+
+  margin-top: 24px; 
   width: 100%;
   display: flex;
-  justify-content: center; /* จัดกึ่งกลางวิดีโอ */
+  justify-content: center; 
 }
 
-.waiting-animation video {
-  width: 180px; /* 👈 ปรับขนาดความกว้างของวิดีโอได้ตรงนี้ (ลองเพิ่ม/ลดดูให้พอดี) */
-  border-radius: 12px; /* ลบมุมให้โค้งมนดูนุ่มนวลขึ้น */
-  pointer-events: none; /* ป้องกันผู้ใช้เผลอกดหยุด หรือคลิกขวาโหลดวิดีโอ */
-  opacity: 0.75; /* ดรอปความเข้มลงนิดหน่อย เพื่อไม่ให้แย่งจุดเด่นจากปุ่มหรือข้อความหลัก */
+.waiting-animation lottie-player {
+  width: 180px; 
+  height: 180px; /* ควรใส่ height กำกับไว้ด้วยให้เป็นสี่เหลี่ยมจัตุรัส */
+  pointer-events: none; 
+  opacity: 0.75; 
 }
