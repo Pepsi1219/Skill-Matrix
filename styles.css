@@ -1,0 +1,698 @@
+/* ========================================
+   ROOT VARIABLES (Dark Mode - Default)
+   ======================================== */
+:root {
+  --google-blue: #4285f4;
+  --google-red: #ea4335;
+  --google-yellow: #fbbc05;
+  --google-green: #34a853;
+
+  --bg: #0b1220;
+  --bg-radial-left: rgba(66, 133, 244, 0.20);
+  --bg-radial-right: rgba(52, 168, 83, 0.14);
+  
+  --panel: #111c2e;
+  --panel-strong: #17243a;
+  --panel-soft: rgba(17, 28, 46, 0.82);
+  --header-panel: rgba(17, 28, 46, 0.92);
+  
+  --table-bg: #0f172a;
+  --row-odd: rgba(23, 36, 58, 0.68);
+  --row-even: rgba(30, 41, 59, 0.68);
+  --cell-empty: rgba(15, 23, 42, 0.68);
+  
+  --employee-cell: linear-gradient(90deg, #142033, #101827);
+  --head-cell: linear-gradient(180deg, #22304a, #18243a);
+  --employee-head: linear-gradient(180deg, #1d293d, #121c2d);
+  
+  --line: rgba(148, 163, 184, 0.20);
+  --text: #e5eefb;
+  --text-strong: #f8fafc;
+  --muted: #94a3b8;
+  
+  --button-bg: #1e293b;
+  --button-hover: #263449;
+  
+  --donut-hole: #f8fafc;
+  --donut-hole-text: #111827;
+  
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+
+  --ctq-accent: #a855f7;
+  --ctq-rail: rgba(168, 85, 247, 0.30);
+  --ctq-bg: rgba(168, 85, 247, 0.09);
+  --ctq-head-bg: linear-gradient(180deg, rgba(168, 85, 247, 0.24), rgba(168, 85, 247, 0.12));
+}
+
+/* ========================================
+   LIGHT MODE
+   ======================================== */
+:root[data-theme="light"] {
+  --bg: #f8fbff;
+  --bg-radial-left: rgba(66, 133, 244, 0.18);
+  --bg-radial-right: rgba(251, 188, 5, 0.18);
+  
+  --panel: #fff;
+  --panel-strong: #f1f5f9;
+  --panel-soft: rgba(255, 255, 255, 0.88);
+  --header-panel: rgba(255, 255, 255, 0.94);
+  
+  --table-bg: #f8fafc;
+  --row-odd: rgba(255, 255, 255, 0.92);
+  --row-even: rgba(241, 245, 249, 0.92);
+  --cell-empty: rgba(248, 250, 252, 0.92);
+  
+  --employee-cell: linear-gradient(90deg, #fff, #eef4ff);
+  --head-cell: linear-gradient(180deg, #e8f0fe, #fff);
+  --employee-head: linear-gradient(180deg, #dbeafe, #eff6ff);
+  
+  --line: rgba(71, 85, 105, 0.18);
+  --text: #1f2937;
+  --text-strong: #111827;
+  --muted: #64748b;
+  
+  --button-bg: #fff;
+  --button-hover: #f1f5f9;
+  
+  --donut-hole: #fff;
+  --donut-hole-text: #111827;
+  
+  --shadow: 0 18px 55px rgba(15, 23, 42, 0.12);
+
+  --ctq-accent: #7c3aed;
+  --ctq-rail: rgba(124, 58, 237, 0.28);
+  --ctq-bg: rgba(124, 58, 237, 0.07);
+  --ctq-head-bg: linear-gradient(180deg, rgba(124, 58, 237, 0.20), rgba(124, 58, 237, 0.09));
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top left, var(--bg-radial-left), transparent 32rem),
+              radial-gradient(circle at top right, var(--bg-radial-right), transparent 30rem),
+              var(--bg);
+}
+
+/* ========================================
+   APP SHELL & HEADER
+   ======================================== */
+.app-shell {
+  padding: 22px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 20px 22px;
+  background: var(--header-panel);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  color: var(--google-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+h1 {
+  margin: 0;
+  font-size: 26px;
+  letter-spacing: -0.03em;
+  color: var(--text-strong);
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+#fileInput {
+  display: none;
+}
+
+/* ========================================
+   THEME TOGGLE
+   ======================================== */
+.theme-toggle {
+  height: 46px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 13px;
+  background: var(--button-bg);
+  color: var(--text);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.theme-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--google-blue) 0 25%,
+    var(--google-red) 0 50%,
+    var(--google-yellow) 0 75%,
+    var(--google-green) 0 100%
+  );
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.72);
+}
+
+/* ========================================
+   UPLOAD CARD
+   ======================================== */
+.upload-card {
+  min-width: 250px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 10px 14px;
+  background: linear-gradient(135deg, rgba(66, 133, 244, 0.18), rgba(52, 168, 83, 0.14));
+  border: 1px dashed rgba(66, 133, 244, 0.55);
+  border-radius: 16px;
+  transition: 0.15s;
+}
+
+.upload-card:hover {
+  transform: translateY(-1px);
+  border-color: var(--google-blue);
+}
+
+.upload-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(66, 133, 244, 0.18);
+  color: var(--google-blue);
+  font-size: 20px;
+}
+
+.upload-card strong {
+  display: block;
+  font-size: 13px;
+  color: var(--text-strong);
+}
+
+.upload-card small {
+  display: block;
+  max-width: 185px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--muted);
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+.btn {
+  border: 1px solid var(--line);
+  background: var(--button-bg);
+  color: var(--text);
+  padding: 11px 15px;
+  border-radius: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: var(--button-hover);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--google-blue), var(--google-green));
+  border: none;
+  color: #fff;
+}
+
+/* ========================================
+   CARDS & PANELS
+   ======================================== */
+.status-panel,
+.dashboard-card {
+  margin-top: 18px;
+  border: 1px solid var(--line);
+  border-radius: 16px; /* ลดความโค้งลงนิดหน่อยให้ดูเป็นทางการขึ้น */
+  background: var(--panel-soft);
+  box-shadow: var(--shadow);
+}
+
+.empty-state {
+  min-height: 250px; /* ลดความสูงลงจาก 350px */
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 32px;
+}
+
+.empty-icon {
+  width: 56px; /* ลดจาก 70px */
+  height: 56px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  background: rgba(66, 133, 244, 0.12);
+  color: var(--google-blue);
+  font-size: 32px; /* ลดจาก 42px */
+  margin: 0 auto 12px;
+}
+
+.empty-state h2 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  color: var(--text-strong);
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.hidden {
+  display: none;
+}
+
+.dashboard-card {
+  padding: 12px; /* ลดจาก 16px */
+}
+
+/* ========================================
+   SUMMARY GRID & METRICS
+   ======================================== */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(120px, 1fr)); /* ลด minmax จาก 150px เป็น 120px */
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.metric-card {
+  padding: 12px; /* ลดจาก 15px */
+  background: linear-gradient(180deg, var(--panel-strong), var(--panel));
+  border: 1px solid var(--line);
+  border-radius: 12px; /* ลดจาก 18px */
+  position: relative;
+  overflow: hidden;
+}
+
+.metric-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--metric-color, var(--google-blue));
+}
+
+.metric-blue { --metric-color: var(--google-blue); }
+.metric-red { --metric-color: var(--google-red); }
+.metric-yellow { --metric-color: var(--google-yellow); }
+.metric-green { --metric-color: var(--google-green); }
+
+.metric-label {
+  display: block;
+  color: var(--muted);
+  font-size: 11px; /* ลดจาก 12px */
+  margin-bottom: 4px;
+}
+
+.metric-card strong {
+  font-size: 20px; /* ลดจาก 25px */
+  color: var(--text-strong);
+}
+
+.metric-sub {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* ========================================
+   TABLE STYLES
+   ======================================== */
+.table-wrap {
+  overflow: auto;
+  max-height: calc(100vh - 180px); /* ปรับให้พอดีจอมากขึ้น */
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--table-bg);
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: max-content;
+  width: 100%;
+}
+
+th, td {
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+th {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  min-width: 56px; /* ซูมเอาท์: ลดจาก 122px */
+  max-width: 80px;  /* ซูมเอาท์: ลดจาก 142px */
+  height: auto;     /* ให้ความสูงปรับตามเนื้อหา ไม่ Fix ที่ 118px */
+  padding: 8px 4px; /* ลดจาก 9px */
+  text-align: center;
+  vertical-align: middle;
+  background: var(--head-cell);
+  color: var(--text-strong);
+  font-size: 9px;  /* ลดจาก 11px */
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+th.employee-head {
+  left: 0;
+  z-index: 8;
+  min-width: 140px; /* ลดจาก 210px */
+  max-width: 140px;
+  background: var(--employee-head);
+}
+
+.operation-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* ให้แสดงแค่ 3 บรรทัดพอ */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.operation-meta {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+/* ========================================
+   BADGES
+   ======================================== */
+.badge {
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: rgba(66, 133, 244, 0.14);
+  color: var(--google-blue);
+  border: 1px solid rgba(66, 133, 244, 0.22);
+  font-size: 9px; /* ลดจาก 10px */
+}
+
+/* ... (คลาส grade-a ถึง d คงเดิม) ... */
+.badge.grade-a { background: rgba(52, 168, 83, 0.15); color: var(--google-green); }
+.badge.grade-b { background: rgba(66, 133, 244, 0.15); color: var(--google-blue); }
+.badge.grade-c { background: rgba(251, 188, 5, 0.17); color: #b45309; }
+.badge.grade-d { background: rgba(234, 67, 53, 0.15); color: var(--google-red); }
+
+/* ========================================
+   TABLE ROWS & CELLS
+   ======================================== */
+tr:nth-child(even) td { background: var(--row-even); }
+tr:nth-child(odd) td { background: var(--row-odd); }
+
+td {
+  min-width: 56px; /* ซูมเอาท์: ลดจาก 122px */
+  height: 56px;    /* ซูมเอาท์: ลดจาก 88px */
+  text-align: center;
+  vertical-align: middle;
+  padding: 4px;    /* ลดจาก 8px */
+}
+
+td.employee-cell {
+  position: sticky;
+  left: 0;
+  z-index: 4;
+  min-width: 140px; /* ซูมเอาท์: ลดจาก 210px */
+  max-width: 140px;
+  text-align: left;
+  background: var(--employee-cell) !important;
+  cursor: pointer;
+  transition: 0.18s;
+  padding-left: 10px; /* ขยับชื่อให้ไม่ติดขอบเกินไป */
+}
+
+td.employee-cell:hover {
+  box-shadow: inset 4px 0 0 var(--google-blue);
+}
+
+.emp-id {
+  display: block;
+  font-size: 10px; /* ซูมเอาท์: ลดจาก 17px */
+  font-weight: 200;
+  color: var(--text-strong);
+  letter-spacing: 0.02em;
+}
+
+.emp-name {
+  display: block;
+  margin-top: 2px;
+  font-size: 10px; /* ซูมเอาท์: ลดจาก 11px */
+  font-weight: 400;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+td.empty-cell {
+  background: var(--cell-empty) !important;
+}
+
+/* ========================================
+   SVG DONUT CHART
+   ======================================== */
+.donut {
+  position: relative;
+  width: 36px;  /* ซูมเอาท์: ลดจาก 68px */
+  height: 36px; /* ซูมเอาท์: ลดจาก 68px */
+  margin: auto;
+  border-radius: 50%; /* เปลี่ยนจาก 20px ให้เป็นวงกลมแท้ */
+  display: grid;
+  place-items: center;
+}
+
+.donut-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%; /* ใช้ 100% แทนการ Fix px */
+  height: 100%;
+  overflow: visible;
+}
+
+.donut-track,
+.donut-progress {
+  fill: none;
+  stroke-width: 4; /* ลดความหนาเส้นจาก 8 */
+}
+
+.donut-track {
+  stroke: rgba(148, 163, 184, 0.22);
+}
+
+.donut-progress {
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: center; /* ใช้ center เพื่อให้หมุนตรงจุดเมื่อย่อขนาด */
+}
+
+.donut-value {
+  position: relative;
+  z-index: 2;
+  width: 24px;  /* ลดขนาดรูตรงกลางจาก 42px */
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--donut-hole);
+  color: var(--donut-hole-text);
+  font-size: 9px; /* ลดฟอนต์ % จาก 12px */
+  font-weight: 900;
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.12), 0 2px 4px rgba(0, 0, 0, 0.10);
+}
+
+.donut.over {
+  filter: drop-shadow(0 0 4px rgba(52, 168, 83, 0.30));
+}
+
+/* ========================================
+   APPROVED SKILL CELL
+   ======================================== */
+td.approved-skill {
+  position: relative;
+  background: radial-gradient(circle at 50% 44%, rgba(251, 188, 5, 0.18), transparent 38px),
+              linear-gradient(135deg, rgba(66, 133, 244, 0.14), rgba(52, 168, 83, 0.10)) !important;
+  box-shadow: inset 0 0 0 1px rgba(66, 133, 244, 0.36);
+}
+
+td.approved-skill::after {
+  content: "";
+  position: absolute;
+  inset: 2px; /* ลดขอบสะท้อนแสงจาก 6px เพื่อให้พอดีกับเซลล์ที่เล็กลง */
+  border-radius: 6px;
+  border: 1px solid rgba(66, 133, 244, 0.32);
+  pointer-events: none;
+}
+
+.approved-skill .donut {
+  filter: drop-shadow(0 6px 10px rgba(66, 133, 244, 0.18));
+}
+
+.approved-skill .donut-track {
+  stroke: rgba(66, 133, 244, 0.18);
+}
+
+.approved-skill .donut-value {
+  border: 1px solid rgba(251, 188, 5, 0.65); /* ลดความหนาขอบจาก 2px */
+  box-shadow: inset 0 0 0 1px rgba(66, 133, 244, 0.10), 0 0 0 2px rgba(251, 188, 5, 0.14), 0 4px 8px rgba(0, 0, 0, 0.16);
+}
+
+.approved-badge {
+  position: absolute;
+  z-index: 3;
+  top: -5px; 
+  right: -12px; 
+  left: auto;  
+  padding: 2px 4px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--google-blue), var(--google-green));
+  color: #fff;
+  font-size: 8px; 
+  font-weight: 400; 
+  letter-spacing: 0.02em;
+  border: 1.5px solid var(--panel);
+  box-shadow: 0 4px 10px rgba(66, 133, 244, 0.30);
+}
+
+/* ... (ธีม Light และ Animation ผมไม่ได้แตะต้องอะไร ปล่อยไว้เหมือนเดิมได้เลยครับ) ... */
+
+/* ========================================
+   SKILL PULSE ANIMATION
+   ======================================== */
+.skill-cell.skill-focus {
+  animation: skillPulse 1.35s ease;
+}
+
+@keyframes skillPulse {
+  0%   { box-shadow: inset 0 0 0 0 rgba(66, 133, 244, 0); }
+  25%  { box-shadow: inset 0 0 0 4px rgba(66, 133, 244, 0.95); }
+  100% { box-shadow: inset 0 0 0 0 rgba(66, 133, 244, 0); }
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 900px) {
+  .app-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .toolbar {
+    justify-content: flex-start;
+  }
+
+  .summary-grid {
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+  }
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+@media print {
+  body {
+    background: #fff;
+    color: #111827;
+  }
+
+  .app-header,
+  .status-panel {
+    display: none !important;
+  }
+
+  .dashboard-card {
+    margin: 0;
+    box-shadow: none;
+    border: none;
+  }
+
+  .table-wrap {
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+/* ========================================
+   CTQ COLUMN HIGHLIGHT
+   ======================================== */
+th.ctq-col {
+  background: var(--ctq-head-bg) !important;
+  border-top: 3px solid var(--ctq-accent);
+}
+
+td.ctq-col {
+  box-shadow: inset 1px 0 0 var(--ctq-rail), inset -1px 0 0 var(--ctq-rail);
+}
+
+td.ctq-col:not(.empty-cell):not(.approved-skill) {
+  background: var(--ctq-bg) !important;
+}
+
+/* ========================================
+   EXPORT MODE (ชั่วคราวตอนกดปุ่ม Export)
+   ======================================== */
+.exporting-mode .table-wrap {
+  max-height: none !important;
+  height: auto !important;
+  width: max-content !important;
+  overflow: visible !important;
+}
+
+/* html2canvas มีบั๊กกับ position: sticky ต้องปลดเป็น static ชั่วคราว */
+.exporting-mode th,
+.exporting-mode td.employee-cell {
+  position: static !important;
+}

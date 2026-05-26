@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skill Training Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Skill Matrix</p>
+        <h1>Skill Training Dashboard</h1>
+        
+      </div>
+      <div class="toolbar">
+        <label class="upload-card" for="fileInput">
+          <span class="upload-icon">↥</span>
+          <span><strong>Import CSV</strong><small id="fileName">No file selected</small></span>
+        </label>
+
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme">
+          <span class="theme-dot"></span><span id="themeLabel">Dark</span>
+        </button>
+
+        <input id="fileInput" type="file" accept=".csv,text/csv" />
+        <button id="btnPng" class="btn btn-primary" disabled>Export PNG</button>
+        <button id="btnPdf" class="btn btn-primary" disabled>Export PDF</button>
+      </div>
+    </header>
+
+    <section id="statusPanel" class="status-panel empty-state">
+      <div class="empty-icon">◌</div>
+      <h2>Please import CSV file</h2>
+      <p>The dashboard will show only cells that have percentage values. Empty Excel cells will stay empty.</p>
+    </section>
+
+    <main id="exportArea" class="dashboard-card hidden">
+      <section class="summary-grid" aria-label="Summary">
+        <div class="metric-card metric-blue"><span class="metric-label">Employees</span><strong id="metricEmployees">0</strong></div>
+        <div class="metric-card metric-red"><span class="metric-label">Operations</span><strong id="metricOperations">0</strong></div>
+        <div class="metric-card metric-yellow"><span class="metric-label">Main Skills</span><strong id="metricFilled">0%</strong><span class="metric-sub" id="metricFilledSub">0/0</span></div>
+        <div class="metric-card metric-green"><span class="metric-label">Multi Skills</span><strong id="metricAverage">0%</strong><span class="metric-sub" id="metricAverageSub">0/0</span></div>
+      </section>
+      <section id="tableWrap" class="table-wrap" aria-label="Skill table">
+        <table id="skillTable"></table>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
