@@ -8,6 +8,7 @@
   <script defer src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
   <script defer src="app.js"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 <body>
   <div class="app-shell">
@@ -42,14 +43,14 @@
   <p data-i18n="statusDesc">The dashboard will show only cells that have percentage values. Empty Excel cells will stay empty.</p>
   
   <div class="waiting-animation">
-  <video id="waitingVideo" 
-         src="Fishing-While-Waiting.mp4" 
-         autoplay 
-         loop 
-         muted 
-         playsinline>
-  </video>
-</div>
+    <lottie-player 
+      src="img/1ae6a4ce-ab48-4d73-bf3c-1822291d84c4.json" 
+      background="transparent" 
+      speed="0.8" 
+      loop 
+      autoplay>
+    </lottie-player>
+  </div>
 </section>
 
     <main id="exportArea" class="dashboard-card hidden">
