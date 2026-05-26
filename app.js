@@ -193,7 +193,7 @@ function renderDashboard(headers, rows) {
     const swept = new Set();
     rowCells.forEach(({ percent, approved }, i) => {
       if (approved && percent !== null) {
-        for (let j = Math.max(0, i - 2); j <= Math.min(rowCells.length - 1, i + 2); j++) {
+        for (let j = Math.max(0, i - 1); j <= Math.min(rowCells.length - 1, i + 1); j++) {
           swept.add(j);
         }
       }
@@ -326,7 +326,7 @@ function extractPercent(value) {
 }
 
 function hasApprovalMark(value) {
-  return /\(\s*A\s*\)/i.test(String(value || ''));
+  return /\(\s*(A|AC)\s*\)/i.test(String(value || ''));
 }
 
 function getColor(value) {
@@ -435,27 +435,21 @@ async function exportPng() {
     return;
   }
   
-  // 1. ดึง Element ที่ครอบตารางไว้ (หรือตัวที่คุณต้องการแคป)
   const targetElement = els.exportArea;
-  
-  // 2. ใส่คลาสเพื่อกางตารางออก 100%
   targetElement.classList.add('exporting-mode');
   
-  // 3. สำคัญมาก! ต้องให้เวลา Browser อัปเดต Layout (Reflow) ก่อนแคปภาพ
-  // ถ้าไม่ใส่ตรงนี้ ภาพที่ได้อาจจะยังเป็นขนาดเดิมอยู่
   await new Promise(resolve => setTimeout(resolve, 300));
   
   try {
-    // 4. สั่งแคปภาพ โดยกำหนดขนาดตาม scrollWidth/scrollHeight จริงที่กางออกแล้ว
     const canvas = await html2canvas(targetElement, {
-      backgroundColor: getThemeBackground(), // หรือตั้งค่าสีขาว '#ffffff' ไปเลยถ้ามีปัญหา
+      backgroundColor: getThemeBackground(), // ถ้ามีปัญหา '#ffffff'
       scale: 2,
       useCORS: true,
       foreignObjectRendering: false,
       width: targetElement.scrollWidth,
       height: targetElement.scrollHeight,
-      windowWidth: targetElement.scrollWidth, // ช่วยบังคับให้ Viewport กว้างตาม
-      logging: false // ปิด Log เพื่อประสิทธิภาพ
+      windowWidth: targetElement.scrollWidth,
+      logging: false // ปิด Log
     });
     
     // 5. โหลดไฟล์
@@ -468,7 +462,6 @@ async function exportPng() {
     console.error("Export Error:", error);
     alert("เกิดข้อผิดพลาดในการสร้างไฟล์ PNG");
   } finally {
-    // 6. ไม่ว่าจะแคปสำเร็จหรือเกิด Error ต้องลบคลาสออกเสมอ เพื่อคืนสภาพ UI
     targetElement.classList.remove('exporting-mode');
   }
 }
