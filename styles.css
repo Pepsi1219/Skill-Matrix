@@ -270,13 +270,13 @@ h1 {
 .dashboard-card {
   margin-top: 18px;
   border: 1px solid var(--line);
-  border-radius: 16px; /* ลดความโค้งลงนิดหน่อยให้ดูเป็นทางการขึ้น */
+  border-radius: 16px; 
   background: var(--panel-soft);
   box-shadow: var(--shadow);
 }
 
 .empty-state {
-  min-height: 250px; /* ลดความสูงลงจาก 350px */
+  min-height: 250px; 
   display: grid;
   place-items: center;
   text-align: center;
@@ -284,14 +284,14 @@ h1 {
 }
 
 .empty-icon {
-  width: 56px; /* ลดจาก 70px */
+  width: 56px; 
   height: 56px;
   border-radius: 18px;
   display: grid;
   place-items: center;
   background: rgba(66, 133, 244, 0.12);
   color: var(--google-blue);
-  font-size: 32px; /* ลดจาก 42px */
+  font-size: 32px;
   margin: 0 auto 12px;
 }
 
@@ -312,7 +312,7 @@ h1 {
 }
 
 .dashboard-card {
-  padding: 12px; /* ลดจาก 16px */
+  padding: 12px;
 }
 
 /* ========================================
@@ -320,16 +320,16 @@ h1 {
    ======================================== */
 .summary-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(120px, 1fr)); /* ลด minmax จาก 150px เป็น 120px */
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
   gap: 12px;
   margin-bottom: 14px;
 }
 
 .metric-card {
-  padding: 12px; /* ลดจาก 15px */
+  padding: 12px; 
   background: linear-gradient(180deg, var(--panel-strong), var(--panel));
   border: 1px solid var(--line);
-  border-radius: 12px; /* ลดจาก 18px */
+  border-radius: 12px; 
   position: relative;
   overflow: hidden;
 }
@@ -350,18 +350,22 @@ h1 {
 .metric-label {
   display: block;
   color: var(--muted);
-  font-size: 11px; /* ลดจาก 12px */
+  font-size: 12px;
+  text-align: center;
   margin-bottom: 4px;
 }
 
 .metric-card strong {
-  font-size: 20px; /* ลดจาก 25px */
+    display: block;
+  font-size: 30px;
+  text-align: center;
   color: var(--text-strong);
 }
 
 .metric-sub {
   display: block;
-  font-size: 11px;
+  text-align: right;
+  font-size: 15px;
   color: var(--muted);
   margin-top: 2px;
 }
@@ -371,7 +375,7 @@ h1 {
    ======================================== */
 .table-wrap {
   overflow: auto;
-  max-height: calc(100vh - 180px); /* ปรับให้พอดีจอมากขึ้น */
+  max-height: calc(100vh - 180px);
   border: 1px solid var(--line);
   border-radius: 12px;
   background: var(--table-bg);
@@ -393,15 +397,15 @@ th {
   position: sticky;
   top: 0;
   z-index: 5;
-  min-width: 56px; /* ซูมเอาท์: ลดจาก 122px */
-  max-width: 80px;  /* ซูมเอาท์: ลดจาก 142px */
-  height: auto;     /* ให้ความสูงปรับตามเนื้อหา ไม่ Fix ที่ 118px */
-  padding: 8px 4px; /* ลดจาก 9px */
+  min-width: 56px; 
+  max-width: 80px; 
+  height: auto; 
+  padding: 8px 4px;
   text-align: center;
   vertical-align: middle;
   background: var(--head-cell);
   color: var(--text-strong);
-  font-size: 9px;  /* ลดจาก 11px */
+  font-size: 9px;  
   line-height: 1.2;
   font-weight: 400;
 }
@@ -409,14 +413,14 @@ th {
 th.employee-head {
   left: 0;
   z-index: 8;
-  min-width: 140px; /* ลดจาก 210px */
+  min-width: 140px; 
   max-width: 140px;
   background: var(--employee-head);
 }
 
 .operation-title {
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* ให้แสดงแค่ 3 บรรทัดพอ */
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -438,10 +442,10 @@ th.employee-head {
   background: rgba(66, 133, 244, 0.14);
   color: var(--google-blue);
   border: 1px solid rgba(66, 133, 244, 0.22);
-  font-size: 9px; /* ลดจาก 10px */
+  font-size: 9px; 
 }
 
-/* ... (คลาส grade-a ถึง d คงเดิม) ... */
+/* ... (grade-a ถึง d ) ... */
 .badge.grade-a { background: rgba(52, 168, 83, 0.15); color: var(--google-green); }
 .badge.grade-b { background: rgba(66, 133, 244, 0.15); color: var(--google-blue); }
 .badge.grade-c { background: rgba(251, 188, 5, 0.17); color: #b45309; }
@@ -454,24 +458,23 @@ tr:nth-child(even) td { background: var(--row-even); }
 tr:nth-child(odd) td { background: var(--row-odd); }
 
 td {
-  min-width: 56px; /* ซูมเอาท์: ลดจาก 122px */
-  height: 56px;    /* ซูมเอาท์: ลดจาก 88px */
+  min-width: 56px; 
+  height: 56px;   
   text-align: center;
   vertical-align: middle;
-  padding: 4px;    /* ลดจาก 8px */
-}
+  padding: 4px;   
 
 td.employee-cell {
   position: sticky;
   left: 0;
   z-index: 4;
-  min-width: 140px; /* ซูมเอาท์: ลดจาก 210px */
+  min-width: 140px; 
   max-width: 140px;
   text-align: left;
   background: var(--employee-cell) !important;
   cursor: pointer;
   transition: 0.18s;
-  padding-left: 10px; /* ขยับชื่อให้ไม่ติดขอบเกินไป */
+  padding-left: 10px; 
 }
 
 td.employee-cell:hover {
@@ -480,7 +483,7 @@ td.employee-cell:hover {
 
 .emp-id {
   display: block;
-  font-size: 10px; /* ซูมเอาท์: ลดจาก 17px */
+  font-size: 10px; 
   font-weight: 200;
   color: var(--text-strong);
   letter-spacing: 0.02em;
@@ -489,7 +492,7 @@ td.employee-cell:hover {
 .emp-name {
   display: block;
   margin-top: 2px;
-  font-size: 10px; /* ซูมเอาท์: ลดจาก 11px */
+  font-size: 10px; 
   font-weight: 400;
   color: var(--muted);
   white-space: nowrap;
@@ -506,10 +509,10 @@ td.empty-cell {
    ======================================== */
 .donut {
   position: relative;
-  width: 36px;  /* ซูมเอาท์: ลดจาก 68px */
-  height: 36px; /* ซูมเอาท์: ลดจาก 68px */
+  width: 36px;  
+  height: 36px; 
   margin: auto;
-  border-radius: 50%; /* เปลี่ยนจาก 20px ให้เป็นวงกลมแท้ */
+  border-radius: 50%; 
   display: grid;
   place-items: center;
 }
@@ -517,7 +520,7 @@ td.empty-cell {
 .donut-svg {
   position: absolute;
   inset: 0;
-  width: 100%; /* ใช้ 100% แทนการ Fix px */
+  width: 100%; 
   height: 100%;
   overflow: visible;
 }
@@ -525,7 +528,7 @@ td.empty-cell {
 .donut-track,
 .donut-progress {
   fill: none;
-  stroke-width: 4; /* ลดความหนาเส้นจาก 8 */
+  stroke-width: 4; 
 }
 
 .donut-track {
@@ -535,13 +538,13 @@ td.empty-cell {
 .donut-progress {
   stroke-linecap: round;
   transform: rotate(-90deg);
-  transform-origin: center; /* ใช้ center เพื่อให้หมุนตรงจุดเมื่อย่อขนาด */
+  transform-origin: center; 
 }
 
 .donut-value {
   position: relative;
   z-index: 2;
-  width: 24px;  /* ลดขนาดรูตรงกลางจาก 42px */
+  width: 24px;  
   height: 24px;
   display: grid;
   place-items: center;
